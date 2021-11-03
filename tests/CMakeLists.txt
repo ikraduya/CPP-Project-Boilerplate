@@ -28,6 +28,12 @@ target_link_libraries(
   PRIVATE gtest_main ${LIBRARY_NAME}
 )
 set_target_properties(${TEST_MAIN} PROPERTIES RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR})
+set_target_properties(
+  ${TEST_MAIN}
+    PROPERTIES
+      CXX_STANDARD 17
+      CXX_STANDARD_REQUIRED YES
+)
 
 include(GoogleTest) # https://cmake.org/cmake/help/v3.14/module/GoogleTest.html
 gtest_discover_tests(${TEST_MAIN})
