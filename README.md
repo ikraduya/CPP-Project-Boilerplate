@@ -1,10 +1,12 @@
 # C++ Project Boilerplate
+![github CI status](https://github.com/ikraduya/CPP-Project-Boilerplate/actions/workflows/ci.yml/badge.svg)
+
 Set-up the minimum project structure and boilerplate code for modern C++ (C++17). Including:
 - Sources, headers, and mains separated in distinct folders
 - CMake for compiling
 - Tests using 'Google tests'
 - CPPLint.cfg to store cpplint configuration
-- .gitignore for C++ project
+- .gitignore for C++ project    
 - CI using Github Actions
 
 ## Structure
@@ -23,14 +25,13 @@ Set-up the minimum project structure and boilerplate code for modern C++ (C++17)
     └── anotherTest.cpp
 ```
 
-## Building
-Build by making a build directory (i.e. `build/`), run `cmake` in that dir, then use `make` to build.
-
-Example:
+## Building using CMake
 ``` bash
-> mkdir build && cd build
-> cmake .. -DCMAKE_BUILD_TYPE=[Debug | Release]
-> make
+> cmake -S . -B build -DCMAKE_BUILD_TYPE=[Debug | Release]
+> cmake --build build
+> cd build
 > ./main
-> make test # Makes and runs tests
+> ctest # Run tests
 ```
+
+> For build type, you must choose between `Debug` or `Release`
